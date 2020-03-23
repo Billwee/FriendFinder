@@ -234,6 +234,46 @@
       <a href="https://github.com/Billwee/FriendFinder">GitHub Repo</a>
     </div>
 
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-backdrop="static"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script type="text/javascript">
       // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
       // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
@@ -297,7 +337,7 @@
           )
         ];
 
-        console.log(numbers);
+        // console.log(numbers);
 
         let newFriend = {
           name: $('#name')
@@ -309,7 +349,7 @@
           scores: numbers
         };
 
-        console.log(newFriend);
+        // console.log(newFriend);
 
         $.post('/api/friends', newFriend, function(data) {
           console.log(data);

@@ -13,13 +13,24 @@ module.exports = function(app) {
     // console.log(array);
     // res.json('sdfsdfsd');
 
+    let compare = 40;
+    let friend;
     array.forEach(element1 => {
+      let sum = 0;
+
       for (let i = 0; i < req.body.scores.length; i++) {
         let diff;
         diff = req.body.scores[i] - element1.scores[i];
         diff = Math.abs(diff);
-        // console.log(diff);
+        sum += diff;
+      }
+      console.log(sum);
+      if (sum < compare) {
+        compare = sum;
+        friend = element1;
       }
     });
+    console.log(friend);
+    res.json(friend);
   });
 };
