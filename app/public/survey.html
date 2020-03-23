@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -25,180 +26,300 @@
       <h3 class="mt-3">Survey Questions</h3>
       <hr class="my-4" />
       <h4 class="font-weight-bold">About You</h4>
-      <form class="needs-validation" novalidate>
-        <div class="form-group">
+      <!-- Form -->
+      <form>
+        <div class="mb-3">
           <label for="name">Name (Required)</label>
-          <input type="text" class="form-control" id="name" />
+          <input type="text" class="form-control" id="name" required />
         </div>
-        <div class="form-group">
-          <label for="photo">Link to Photo Image (Required)</label>
-          <input type="text" class="form-control" id="photo" />
+        <div class="mb-3">
+          <label for="photo">Link to Photo (Required)</label>
+          <input type="text" class="form-control" id="photo" required />
         </div>
-        <hr class="my-4" />
-        <h4 class="font-weight-bold">Question 1</h4>
-        <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
-        <select
-          class="form-group custom-select custom-select-sm col-md-4 mb-3"
-          id="inputState"
-          required
-        >
-          <option selected disabled>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <div class="invalid-feedback">
-          Please select a valid answer.
+        <hr class="my-3" />
+        <!-- Question 1 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 1</h4>
+          <h6>Your mind is always buzzing with unexplored ideas and plans.</h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q1"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
         </div>
-        <h4 class="font-weight-bold">Question 2</h4>
-        <h6>
-          Generally speaking, you rely more on your experience than your
-          imagination.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 3</h4>
-        <h6>
-          You find it easy to stay relaxed and focused even when there is some
-          pressure.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 4</h4>
-        <h6>You rarely do something just out of sheer curiosity.</h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 5</h4>
-        <h6>People can rarely upset you.</h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 6</h4>
-        <h6>
-          It is often difficult for you to relate to other people’s feelings.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 7</h4>
-        <h6>
-          In a discussion, truth should be more important than people’s
-          sensitivities.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 8</h4>
-        <h6>You rarely get carried away by fantasies and ideas.</h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 9</h4>
-        <h6>
-          You think that everyone’s views should be respected regardless of
-          whether they are supported by facts or not.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-        <h4 class="font-weight-bold">Question 10</h4>
-        <h6>
-          You feel more energetic after spending time with a group of people.
-        </h6>
-        <select
-          id="inputState"
-          class="custom-select custom-select-sm col-md-4 mb-3"
-        >
-          <option selected>Choose...</option>
-          <option>1 (Strongly Disagree)</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5 (Strongly Agree)</option>
-        </select>
-
-        <button type="submit" class="btn btn-primary btn-block">
-          <i class="fas fa-check-circle"></i> Submit
+        <!-- Question 2 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 2</h4>
+          <h6>
+            Generally speaking, you rely more on your experience than your
+            imagination.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q2"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 3 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 3</h4>
+          <h6>
+            You find it easy to stay relaxed and focused even when there is some
+            pressure.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q3"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 4 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 4</h4>
+          <h6>You rarely do something just out of sheer curiosity.</h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q4"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 5 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 5</h4>
+          <h6>People can rarely upset you.</h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q5"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 6 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 6</h4>
+          <h6>
+            It is often difficult for you to relate to other people’s feelings.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q6"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 7 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 7</h4>
+          <h6>
+            In a discussion, truth should be more important than people’s
+            sensitivities.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q7"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 8 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 8</h4>
+          <h6>You rarely get carried away by fantasies and ideas.</h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q8"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 9 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 9</h4>
+          <h6>
+            You think that everyone’s views should be respected regardless of
+            whether they are supported by facts or not.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q9"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Question 10 -->
+        <div class=" mb-3">
+          <h4 class="font-weight-bold">Question 10</h4>
+          <h6>
+            You feel more energetic after spending time with a group of people.
+          </h6>
+          <select
+            class="custom-select custom-select-sm col-md-4"
+            id="Q10"
+            required
+          >
+            <option selected disabled value="">Choose...</option>
+            <option>1 (Strongly Disagree)</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5 (Strongly Agree)</option>
+          </select>
+        </div>
+        <!-- Button -->
+        <button class="btn btn-primary btn-block mt-4" type="submit">
+          <i class="fas fa-check-circle"></i> Submit form
         </button>
       </form>
     </div>
     <div class="container mt-5 mb-3">
-      <a href="">API Friends List</a> | <a href="">GitHub Repo</a>
+      <a href="/api/friends">API Friends List</a> |
+      <a href="https://github.com/Billwee/FriendFinder">GitHub Repo</a>
     </div>
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
+
+    <script type="text/javascript">
+      // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
+      // In essence, when the user hits submit, jQuery grabs all of the fields then sends a post request to our api
+      // Our api recognizes the route (/api/tables)... and then runs the associated code (found in api-routes.js).
+      // In this case the associated code "saves" the data to the table-data.js file or waitinglist-data.js file
+
+      $('form').on('submit', function(event) {
+        event.preventDefault();
+
+        // Here we grab the form elements
+        let numbers = [
+          parseInt(
+            $('#Q1')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q2')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q3')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q4')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q5')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q6')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q7')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q8')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q9')
+              .val()
+              .charAt(0)
+          ),
+          parseInt(
+            $('#Q10')
+              .val()
+              .charAt(0)
+          )
+        ];
+
+        console.log(numbers);
+
+        let newFriend = {
+          name: $('#name')
+            .val()
+            .trim(),
+          photo: $('#photo')
+            .val()
+            .trim(),
+          scores: numbers
+        };
+
+        console.log(newFriend);
+
+        $.post('/api/friends', newFriend, function(data) {
+          console.log(data);
+          // alert('qwegewq');
+
+          //insert something to clear form after submitting
+        });
+      });
+    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
       integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
