@@ -16,7 +16,7 @@ Be sure to run `npm install` to get your node modules installed along with expre
 
 ## Application Walk-Through
 
-1. A `server.js` file requiring express and two route files: `htmlRoutes.js` and `apiRoutes.js` creates the localhost server.
+1. A `server.js` file requiring express and two route files (`htmlRoutes.js` and `apiRoutes.js`) creates the localhost server.
 
 2. The `htmlRoutes.js` file includes two routes:
 
@@ -40,8 +40,8 @@ Be sure to run `npm install` to get your node modules installed along with expre
 
 5. The application determines the user's most compatible friend using the following:
 
-   - Convert each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
-   - With that done, compare the difference between current user's scores against those from other users, question by question. Add up the differences to calculate the `totalDifference`.
+   - Converting each user's results into a simple array of numbers (ex: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`).
+   - With that done, it compares the difference between current user's scores against those from other users, question by question. Adding up the differences to calculate the `totalDifference`.
      - Example:
        - User 1: `[5, 1, 4, 4, 5, 1, 2, 5, 4, 1]`
        - User 2: `[3, 2, 6, 4, 5, 1, 2, 5, 4, 1]`
@@ -49,5 +49,11 @@ Be sure to run `npm install` to get your node modules installed along with expre
    - Using the absolute value of the differences to avoid negative numbers.
    - The closest match will be the user with the least amount of difference.
 
-6. Once the current user's most compatible friend is found, the result is displayed as a modal pop-up.
+6. If any text fields or selection dropdowns are not answered, the form will not submit and instruct the user which question/s were not answered.
+
+7. Once the current user's most compatible friend is found, the result is displayed as a modal pop-up.
    - The modal displays both the name and picture of the closest match along with the user.
+
+## Deployment
+
+The application is hosted on Heroku: [Click Here](https://mysterious-hollows-24186.herokuapp.com/)
