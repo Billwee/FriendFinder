@@ -23,13 +23,12 @@ module.exports = function(app) {
         diff = Math.abs(diff);
         sum += diff;
       }
-      console.log(sum);
       if (sum < compare) {
         compare = sum;
         friend = element1;
       }
     });
-    console.log(friend);
+    // console.log(friend);
     res.json(friend);
   });
 };

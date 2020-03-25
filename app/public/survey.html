@@ -20,10 +20,9 @@
       crossorigin="anonymous"
     ></script>
     <style>
+      /* A small amount of styling for the grid in the modal */
       #userPhoto,
       #friendPhoto {
-        /* object-fit: cover; */
-        align-items: center;
         max-width: 100%;
         height: 80%;
         margin: auto;
@@ -43,6 +42,8 @@
       <hr class="my-4" />
       <h4 class="font-weight-bold">About You</h4>
       <!-- Form -->
+      <!-- This form containes validation so none of the text fields
+      or selection drop downs can be empty -->
       <form>
         <div class="mb-3">
           <label for="name">Name (Required)</label>
@@ -255,6 +256,7 @@
     </div>
 
     <!-- Modal -->
+    <!-- This modal shows both the user info and calculated friend info within a grid -->
     <div
       id="myModal"
       class="modal"
@@ -296,6 +298,7 @@
               </div>
             </div>
           </div>
+          <!-- Buttons on hte modal that allow the user to close it and look over the answers chosen or reload the page and start over completely -->
           <div class="modal-footer">
             <button
               type="button"
@@ -321,7 +324,17 @@
       $('form').on('submit', function(event) {
         event.preventDefault();
 
-        // Here we grab the form elements
+        // Loading GIF loads first to clear out the old data when
+        // resubmitting the survey. You'd see the last match for a
+        // second or so if this wasn't added.
+        $('#friendPhoto').attr(
+          'src',
+          'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif'
+        );
+        $('#friendName').text('');
+
+        // Here we grab the first index of the question answers
+        // and put them into an array
         let numbers = [
           parseInt(
             $('#Q1')
@@ -374,7 +387,7 @@
               .charAt(0)
           )
         ];
-
+        //Creates the new friend object
         let newFriend = {
           name: $('#name')
             .val()
@@ -384,12 +397,17 @@
             .trim(),
           scores: numbers
         };
-        var dsv;
+        //POST that send the newly created friend object and
+        // and also loads the returned data into the modal
         $.post('/api/friends', newFriend, function(data) {
           $('#friendName').text(data.name);
           $('#friendPhoto').attr('src', data.photo);
+
+          //Displaying the modal
+          $('#myModal').modal('show');
         });
-        console.log(dsv);
+
+        //Loads the text field values into the modal
         $('#userName').text(
           $('#name')
             .val()
@@ -402,7 +420,6 @@
             .val()
             .trim()
         );
-        $('#myModal').modal('show');
       });
     </script>
 
