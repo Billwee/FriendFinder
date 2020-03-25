@@ -1,18 +1,17 @@
-var path = require('path');
-
+//Path the the data file containing all the friends
 var array = require('../data/friends');
 
 module.exports = function(app) {
+  //GET that returns the array of objects in JSON format
   app.get('/api/friends', function(req, res) {
     return res.json(array);
   });
 
+  // POST used to send the user data for comparing against the
+  // database of potential matches. Then a forEach within a for
+  // loop that calculates the best possible matching friend. Then
+  // returning that friend object.
   app.post('/api/friends', function(req, res) {
-    // array.push(req.body);
-    // console.log(req.body);
-    // console.log(array);
-    // res.json('sdfsdfsd');
-
     let compare = 40;
     let friend;
     array.forEach(element1 => {
