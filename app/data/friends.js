@@ -7,7 +7,7 @@ let friendsArr = [
   {
     name: 'Albert',
     photo: 'https://unsplash.com/photos/NohB3FJSY90/download?force=true&w=640',
-    scores: [1, 2, 3, 3, 4, 4, 6, 3, 2, 4]
+    scores: [1, 2, 3, 3, 4, 4, 5, 3, 2, 4]
   },
   {
     name: 'Lisa',
